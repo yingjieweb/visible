@@ -1,5 +1,7 @@
 <template>
-  <div>DimensionReduction</div>
+  <div class="dimensionReduction">
+    <img src="../assets/plots/picture.jpg" alt="">
+  </div>
 </template>
 
 <script lang="js">
@@ -8,6 +10,11 @@
   }
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+  .dimensionReduction {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
 </style>

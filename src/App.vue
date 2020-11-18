@@ -61,7 +61,9 @@
 
   .content {
     width: 70vw;
-    height: 100vh;
-    border: 1px solid darkblue;
+  }
+
+  h1, h2 {
+    margin-top: 20px;
   }
 </style>
