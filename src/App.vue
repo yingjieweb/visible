@@ -1,28 +1,67 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="content">
+      <h1 style="text-align: center">实验报告</h1>
+
+      <h2>数据集概览</h2>
+      <DatasetOverview></DatasetOverview>
+
+      <h2>数据集降维可视化</h2>
+      <DimensionReduction></DimensionReduction>
+
+      <h2>实验结果</h2>
+      <ExperimentalResults></ExperimentalResults>
+
+      <h2>混淆矩阵图</h2>
+      <ConfusionMatrix></ConfusionMatrix>
+
+      <h2>结果热力图</h2>
+      <ResultantThermal></ResultantThermal>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import DatasetOverview from "./components/DatasetOverview"
+  import DimensionReduction from "./components/DimensionReduction"
+  import ExperimentalResults from "./components/ExperimentalResults"
+  import ConfusionMatrix from "./components/ConfusionMatrix"
+  import ResultantThermal from "./components/ResultantThermal"
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      DatasetOverview,
+      DimensionReduction,
+      ExperimentalResults,
+      ConfusionMatrix,
+      ResultantThermal
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    width: 70vw;
+    height: 100vh;
+    border: 1px solid darkblue;
+  }
 </style>
