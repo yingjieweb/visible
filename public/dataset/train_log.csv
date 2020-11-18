@@ -1,0 +1,3 @@
+﻿algorithm,accuracy,recall,precision,f1_score
+A,1,2,3,6
+B,9,3,7,4
