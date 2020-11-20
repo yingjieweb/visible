@@ -13,8 +13,10 @@
 <style scoped>
   .dimensionReduction {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
   img {
-    width: 100%;
+    width: 80%;
   }
 </style>

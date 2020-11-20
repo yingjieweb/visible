@@ -1,5 +1,8 @@
 <template>
-  <div>ConfusionMatrix</div>
+  <div class="confusionMatrix">
+    <img src="../assets/plots/picture.jpg" alt="">
+    <img src="../assets/plots/picture.jpg" alt="">
+  </div>
 </template>
 
 <script lang="js">
@@ -8,6 +11,14 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+  .confusionMatrix {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 
+  img {
+    width: 48%;
+  }
 </style>
