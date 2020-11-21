@@ -1,11 +1,7 @@
 <template>
   <div class="experimentalResults">
     <el-table :data="tableData" style="width: 100%" border>
-      <el-table-column prop="algorithm" label="algorithm"></el-table-column>
-      <el-table-column prop="accuracy" label="accuracy"></el-table-column>
-      <el-table-column prop="recall" label="recall"></el-table-column>
-      <el-table-column prop="precision" label="precision"></el-table-column>
-      <el-table-column prop="f1_score" label="f1_score"></el-table-column>
+      <el-table-column v-for="item in propsArr" :key="item" :prop="item" :label="item"></el-table-column>
     </el-table>
   </div>
 </template>
@@ -20,23 +16,26 @@
         url: '/dataset/train_log.csv',
         method: 'get'
       }).then(res => {
-        let dataArr = res.data.split('\n').slice(1, -1);
+        let nameArr = res.data.split('\n').slice(0, 1)[0].split(',') // ["kind", "count", "number"]
+        let dataArr = res.data.split('\n').slice(1, -1) // ["A,111,222", "B,111,222"]
 
-        let tableData = [];
-        dataArr.map( item => {
-          let obj = {};
-          obj.algorithm = item.split(',')[0]
-          obj.accuracy = item.split(',')[1]
-          obj.recall = item.split(',')[2]
-          obj.precision = item.split(',')[3]
-          obj.f1_score = item.split(',')[4]
-          tableData.push(obj)
+        this.propsArr = nameArr
+
+        let obj = {}
+        nameArr.map((item) => {
+          obj[item] = ''
         })
-        this.tableData = tableData
+        dataArr.map(item => {
+          item.split(',').map( (i, index) => {
+            obj[nameArr[index]] = i;
+          })
+          this.tableData.push((JSON).parse(JSON.stringify(obj)))
+        })
       })
     },
     data() {
       return {
+        propsArr: [],
         tableData: []
       }
     }
