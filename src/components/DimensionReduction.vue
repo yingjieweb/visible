@@ -1,6 +1,9 @@
 <template>
-  <div class="dimensionReduction">
-    <img src="../assets/plots/picture.jpg" alt="">
+  <div class="container">
+    <h2>数据集降维可视化</h2>
+    <div class="inner">
+      <img src="../assets/plots/dimensionReduction.jpg" alt="">
+    </div>
   </div>
 </template>
 
@@ -11,12 +14,12 @@
 </script>
 
 <style scoped>
-  .dimensionReduction {
+  .inner {
     width: 100%;
     display: flex;
     justify-content: center;
   }
   img {
-    width: 80%;
+    width: 100%;
   }
 </style>

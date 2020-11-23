@@ -1,7 +1,10 @@
 <template>
-  <div class="resultantThermal">
-    <img src="../assets/plots/picture.jpg" alt="">
-    <img src="../assets/plots/picture.jpg" alt="">
+  <div class="container">
+    <h2>结果热力图</h2>
+    <div class="inner">
+      <img src="../assets/plots/dimensionReduction.jpg" alt="">
+      <img src="../assets/plots/dimensionReduction.jpg" alt="">
+    </div>
   </div>
 </template>
 
@@ -12,7 +15,7 @@
 </script>
 
 <style scoped>
-  .resultantThermal {
+  .inner {
     width: 100%;
     display: flex;
     justify-content: space-around;

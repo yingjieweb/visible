@@ -1,5 +1,6 @@
 <template>
-  <div class="experimentalResults">
+  <div class="container">
+    <h2>实验结果</h2>
     <el-table :data="tableData" style="width: 100%" border>
       <el-table-column v-for="item in propsArr" :key="item" :prop="item" :label="item"></el-table-column>
     </el-table>

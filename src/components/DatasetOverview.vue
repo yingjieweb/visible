@@ -1,5 +1,6 @@
 <template>
-  <div class="datasetOverview">
+  <div class="container">
+    <h2>数据集概览</h2>
     <el-table :data="tableData" style="width: 100%" border>
       <el-table-column v-for="item in propsArr" :key="item" :prop="item" :label="item"></el-table-column>
     </el-table>
@@ -49,5 +50,4 @@
 </script>
 
 <style scoped>
-
 </style>
