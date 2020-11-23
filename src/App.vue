@@ -3,19 +3,19 @@
     <div class="content">
       <h1 style="text-align: center">实验报告</h1>
 
-      <h2>数据集概览</h2>
+      <!--数据集概览-->
       <DatasetOverview></DatasetOverview>
 
-      <h2>数据集降维可视化</h2>
+      <!--数据集降维可视化-->
       <DimensionReduction></DimensionReduction>
 
-      <h2>实验结果</h2>
+      <!--实验结果-->
       <ExperimentalResults></ExperimentalResults>
 
-      <h2>混淆矩阵图</h2>
+      <!--混淆矩阵图-->
       <ConfusionMatrix></ConfusionMatrix>
 
-      <h2>结果热力图</h2>
+      <!--结果热力图-->
       <ResultantThermal></ResultantThermal>
     </div>
   </div>
@@ -61,6 +61,11 @@
 
   .content {
     width: 70vw;
+  }
+
+  .container {
+    border: 1px solid darkseagreen;
+    padding: 2px;
   }
 
   h1, h2 {
