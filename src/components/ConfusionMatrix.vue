@@ -10,8 +10,9 @@
         <i class="el-icon-s-grid" style="cursor: pointer;" @click="setTriple"></i>
       </div>
     </div>
-    <div class="inner" :class="{}">
-      <img class="double" src="../assets/plots/dimensionReduction.jpg" alt="">
+    <div class="inner" :class="classes">
+      <img src="../assets/plots/dimensionReduction.jpg" alt="">
+      <img src="../assets/plots/dimensionReduction.jpg" alt="">
       <img src="../assets/plots/dimensionReduction.jpg" alt="">
     </div>
   </div>
@@ -23,7 +24,8 @@
     data() {
       return {
         num: 1,
-        imgArr: []
+        imgArr: [],
+        classes: ''
       }
     },
     methods: {
@@ -35,13 +37,13 @@
         console.log(this.imgArr.length)
       },
       setSingle() {
-        console.log(1111)
+        this.classes = 'singleLayout'
       },
       setDouble() {
-        console.log(2222)
+        this.classes = 'doubleLayout'
       },
       setTriple() {
-        console.log(3333)
+        this.classes = 'tripleLayout'
       }
     }
   }
@@ -61,8 +63,6 @@
 
   .inner {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
   }
 
   .number {
@@ -79,9 +79,11 @@
     cursor: pointer;
   }
 
-  i {
-    font-size: 28px;
-  }
+  .singleLayout > img { width: 100%}
+  .doubleLayout > img { width: 50%}
+  .tripleLayout > img { width: 33.333%}
 
-  img { width: 48%;}
+  i {font-size: 28px;}
+
+  img { width: 100%;}
 </style>
