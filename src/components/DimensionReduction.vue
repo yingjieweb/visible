@@ -20,12 +20,14 @@
         <img :src="require(`../../public/plots_1th/${item}`)" alt="">
       </div>
     </div>
-    <!--<el-popover
-            placement="top-start"
-            trigger="hover"
-            content="点击添加图片 老弟！🤔">
-      <el-button slot="reference"><i class="el-icon-plus"></i></el-button>
-    </el-popover>-->
+    <div class="addImage">
+      <el-popover
+              placement="top"
+              trigger="hover"
+              content="点击添加图片 老弟！🤔">
+        <el-button type="text" slot="reference" ><i class="el-icon-plus"></i></el-button>
+      </el-popover>
+    </div>
   </div>
 </template>
 
@@ -116,5 +118,11 @@
   img {
     width: 50%;
     border: 1px solid #EEEEEE;
+  }
+
+  .addImage {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #aaa9a9;
   }
 </style>
