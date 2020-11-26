@@ -9,7 +9,20 @@
 
 <script lang="js">
   export default {
-    name: "DimensionReduction"
+    name: "DimensionReduction",
+    created() {
+      let requireModule = require.context(
+          "../../public/plots_1th",
+          false,
+          /\.jpg$|\.png$/
+      )
+      let arr = []
+
+      for (let i = 0; i < requireModule.keys().length; i++) {
+        arr.push(requireModule.keys()[i].substr(2, requireModule.keys()[i].length))
+      }
+      console.log(arr)
+    },
   }
 </script>
 
