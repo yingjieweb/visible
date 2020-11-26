@@ -2,7 +2,7 @@
   <div class="container">
     <h2>数据集降维可视化</h2>
     <div class="inner">
-      <img src="../assets/plots/dimensionReduction.jpg" alt="">
+      <img src="../../public/plots_1th/dimensionReduction.jpg" alt="">
     </div>
   </div>
 </template>
