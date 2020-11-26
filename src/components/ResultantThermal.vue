@@ -16,9 +16,9 @@
       </div>
     </div>
     <div class="inner" :class="classes">
-      <img src="../../public/plots_3rd/resultantThermal1.jpg" alt="">
-      <img src="../../public/plots_3rd/resultantThermal2.jpg" alt="">
-      <img src="../../public/plots_3rd/resultantThermal3.jpg" alt="">
+      <span v-for="(item, index) in imagesArr" :key="index">
+        <img :src="require(`../../public/plots_3rd/${item}`)" alt="">
+      </span>
     </div>
   </div>
 </template>
@@ -28,8 +28,22 @@
     name: "resultantThermal",
     data() {
       return {
-        classes: ''
+        classes: '',
+        imagesArr: []
       }
+    },
+    created() {
+      let requireModule = require.context(
+          "../../public/plots_3rd",
+          false,
+          /\.jpg$|\.png$|\.jpeg$/
+      )
+      let imagesArr = []
+
+      for (let i = 0; i < requireModule.keys().length; i++) {
+        imagesArr.push(requireModule.keys()[i].substr(2, requireModule.keys()[i].length))
+      }
+      this.imagesArr = imagesArr
     },
     methods: {
       setSingle() {
@@ -75,17 +89,17 @@
     cursor: pointer;
   }
 
-  .singleLayout > img {
+  .singleLayout img {
     width: 100%;
     border: 1px solid #EEEEEE;
   }
 
-  .doubleLayout > img {
+  .doubleLayout img {
     width: 50%;
     border: 1px solid #EEEEEE;
   }
 
-  .tripleLayout > img {
+  .tripleLayout img {
     width: 33.333%;
     border: 1px solid #EEEEEE;
   }
@@ -93,7 +107,7 @@
   i {font-size: 28px;}
 
   img {
-    width: 100%;
+    width: 33.3333%;
     border: 1px solid #EEEEEE;
   }
 </style>
