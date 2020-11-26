@@ -3,7 +3,13 @@
     <div class="operation">
       <span>混淆矩阵图</span>
       <div class="buttons">
-        😏
+        <el-popover
+                style="margin-top: -5px;"
+                placement="top-start"
+                trigger="hover"
+                content="世界上就没有我宋徐坤解决不了的问题！😏">
+          <span slot="reference">😏</span>
+        </el-popover>
         <img src="../assets/images/ong.png" class="single" @click="setSingle">
         <i class="el-icon-menu" style="cursor: pointer;" @click="setDouble"></i>
         <i class="el-icon-s-grid" style="cursor: pointer;" @click="setTriple"></i>

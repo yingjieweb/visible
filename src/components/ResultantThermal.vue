@@ -3,7 +3,13 @@
     <div class="operation">
       <span>结果热力图</span>
       <div class="buttons">
-        图片总数量：
+        <el-popover
+                style="margin-top: -5px;"
+                placement="top-start"
+                trigger="hover"
+                content="世界上就没有我宋徐坤解决不了的问题！😏">
+          <span slot="reference">😏</span>
+        </el-popover>
         <img src="../assets/images/ong.png" class="single" @click="setSingle">
         <i class="el-icon-menu" style="cursor: pointer;" @click="setDouble"></i>
         <i class="el-icon-s-grid" style="cursor: pointer;" @click="setTriple"></i>
@@ -56,7 +62,7 @@
   }
 
   .buttons {
-    width: 390px;
+    width: 150px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -65,7 +71,7 @@
   .single {
     width: 21px;
     margin-top: -2px;
-    margin-right: 3px;
+    margin-right: 2px;
     cursor: pointer;
   }
 
