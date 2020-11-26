@@ -2,9 +2,8 @@
   <div class="container">
     <div class="operation">
       <span>结果热力图</span>
-      <div class="number">
+      <div class="buttons">
         图片总数量：
-        <el-input-number v-model="num" @change="handleChange" :min="1" label="描述文字"></el-input-number>
         <img src="../assets/images/ong.png" class="single" @click="setSingle">
         <i class="el-icon-menu" style="cursor: pointer;" @click="setDouble"></i>
         <i class="el-icon-s-grid" style="cursor: pointer;" @click="setTriple"></i>
@@ -23,19 +22,10 @@
     name: "resultantThermal",
     data() {
       return {
-        num: 1,
-        imgArr: [],
         classes: ''
       }
     },
     methods: {
-      handleChange(value) {
-        this.imgArr = []
-        for (let i = 1; i <= value; i++) {
-          this.imgArr.push({src: require(`../assets/plots/confusionMatrix${value}.jpg`)})
-        }
-        console.log(this.imgArr.length)
-      },
       setSingle() {
         this.classes = 'singleLayout'
       },
@@ -65,7 +55,7 @@
     width: 100%;
   }
 
-  .number {
+  .buttons {
     width: 390px;
     display: flex;
     justify-content: space-around;
@@ -79,11 +69,25 @@
     cursor: pointer;
   }
 
-  .singleLayout > img { width: 100%}
-  .doubleLayout > img { width: 50%}
-  .tripleLayout > img { width: 33.333%}
+  .singleLayout > img {
+    width: 100%;
+    border: 1px solid #EEEEEE;
+  }
+
+  .doubleLayout > img {
+    width: 50%;
+    border: 1px solid #EEEEEE;
+  }
+
+  .tripleLayout > img {
+    width: 33.333%;
+    border: 1px solid #EEEEEE;
+  }
 
   i {font-size: 28px;}
 
-  img { width: 100%;}
+  img {
+    width: 100%;
+    border: 1px solid #EEEEEE;
+  }
 </style>

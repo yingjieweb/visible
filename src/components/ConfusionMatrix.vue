@@ -2,9 +2,8 @@
   <div class="container">
     <div class="operation">
       <span>混淆矩阵图</span>
-      <div class="number">
-        图片总数量：
-        <el-input-number v-model="num" @change="handleChange" :min="1" label="描述文字"></el-input-number>
+      <div class="buttons">
+        😏
         <img src="../assets/images/ong.png" class="single" @click="setSingle">
         <i class="el-icon-menu" style="cursor: pointer;" @click="setDouble"></i>
         <i class="el-icon-s-grid" style="cursor: pointer;" @click="setTriple"></i>
@@ -23,19 +22,23 @@
     name: "ConfusionMatrix",
     data() {
       return {
-        num: 1,
-        imgArr: [],
         classes: ''
       }
     },
+    created() {
+      let requireModule = require.context(
+          "../assets/plots",
+          false,
+          /\.jpg$/
+      )
+      let arr = []
+
+      for (let i = 0; i < requireModule.keys().length; i++) {
+        arr.push(requireModule.keys()[i].substr(2, requireModule.keys()[i].length))
+      }
+      console.log(arr)
+    },
     methods: {
-      handleChange(value) {
-        this.imgArr = []
-        for (let i = 1; i <= value; i++) {
-          this.imgArr.push({src: require(`../assets/plots/confusionMatrix${value}.jpg`)})
-        }
-        console.log(this.imgArr.length)
-      },
       setSingle() {
         this.classes = 'singleLayout'
       },
@@ -65,8 +68,8 @@
     width: 100%;
   }
 
-  .number {
-    width: 390px;
+  .buttons {
+    width: 150px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -75,15 +78,29 @@
   .single {
     width: 21px;
     margin-top: -2px;
-    margin-right: 3px;
+    margin-right: 2px;
     cursor: pointer;
   }
 
-  .singleLayout > img { width: 100%}
-  .doubleLayout > img { width: 50%}
-  .tripleLayout > img { width: 33.333%}
+  .singleLayout > img {
+    width: 100%;
+    border: 1px solid #EEEEEE;
+  }
+
+  .doubleLayout > img {
+    width: 50%;
+    border: 1px solid #EEEEEE;
+  }
+
+  .tripleLayout > img {
+    width: 33.333%;
+    border: 1px solid #EEEEEE;
+  }
 
   i {font-size: 28px;}
 
-  img { width: 100%;}
+  img {
+    width: 100%;
+    border: 1px solid #EEEEEE;
+  }
 </style>
