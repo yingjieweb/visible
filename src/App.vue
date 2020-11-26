@@ -57,6 +57,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
   }
 
   .content {
@@ -64,8 +65,9 @@
   }
 
   .container {
-    border: 1px solid darkseagreen;
+    border: 1px solid #aaa9a9;
     padding: 2px;
+    margin-top: -1px;
   }
 
   h1, h2 {

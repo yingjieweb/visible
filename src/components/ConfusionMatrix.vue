@@ -69,6 +69,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+    border-bottom: 1px solid #aaa9a9;
   }
 
   .inner {
