@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="operation">
-      <span>结果热力图</span>
+      <span>{{title}}</span>
       <div class="buttons">
         <el-popover
                 style="margin-top: -5px;"
@@ -17,15 +17,33 @@
     </div>
     <div class="inner" :class="classes">
       <span v-for="(item, index) in imagesArr" :key="index">
-        <img :src="require(`../../public/plots_3rd/${item}`)" alt="">
+        <img :src="require(`../../public/plots/${item}`)" alt="">
       </span>
     </div>
+    <!--<div class="addImage">
+      <el-popover
+              placement="top"
+              trigger="hover"
+              content="点击添加图片 老弟！🤔">
+        <el-button type="text" slot="reference"><i class="el-icon-plus"></i></el-button>
+      </el-popover>
+    </div>-->
   </div>
 </template>
 
 <script lang="js">
   export default {
-    name: "resultantThermal",
+    name: "DimensionReduction",
+    props: {
+      title: {
+        type: String,
+        default: ''
+      },
+      imagePartName: {
+        type: String,
+        default: ''
+      }
+    },
     data() {
       return {
         classes: '',
@@ -33,17 +51,7 @@
       }
     },
     created() {
-      let requireModule = require.context(
-          "../../public/plots_3rd",
-          false,
-          /\.jpg$|\.png$|\.jpeg$/
-      )
-      let imagesArr = []
-
-      for (let i = 0; i < requireModule.keys().length; i++) {
-        imagesArr.push(requireModule.keys()[i].substr(2, requireModule.keys()[i].length))
-      }
-      this.imagesArr = imagesArr
+      this.getImageAssets()
     },
     methods: {
       setSingle() {
@@ -54,6 +62,21 @@
       },
       setTriple() {
         this.classes = 'tripleLayout'
+      },
+      getImageAssets() {
+        let requireModule = require.context(
+            `../../public/plots`,
+            false,
+            /\.jpg$|\.png$|\.jpeg$/
+        )
+        let imagesArr = []
+
+        for (let i = 0; i < requireModule.keys().length; i++) {
+          imagesArr.push(requireModule.keys()[i].substr(2, requireModule.keys()[i].length))
+        }
+        this.imagesArr = imagesArr.filter(item => {
+          return item.toString().search(this.imagePartName) === 0
+        })
       }
     }
   }
@@ -108,7 +131,13 @@
   i {font-size: 28px;}
 
   img {
-    width: 33.3333%;
+    width: 33.333%;
     border: 1px solid #EEEEEE;
+  }
+
+  .addImage {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #aaa9a9;
   }
 </style>

@@ -7,35 +7,31 @@
       <DatasetOverview></DatasetOverview>
 
       <!--数据集降维可视化-->
-      <DimensionReduction></DimensionReduction>
+      <ThermalDiagram title="数据集降维可视化" imagePartName="dimension"></ThermalDiagram>
 
       <!--实验结果-->
       <ExperimentalResults></ExperimentalResults>
 
       <!--混淆矩阵图-->
-      <ConfusionMatrix></ConfusionMatrix>
+      <ThermalDiagram title="混淆矩阵图" imagePartName="confusion"></ThermalDiagram>
 
       <!--结果热力图-->
-      <ResultantThermal></ResultantThermal>
+      <ThermalDiagram title="结果热力图" imagePartName="result"></ThermalDiagram>
     </div>
   </div>
 </template>
 
 <script>
   import DatasetOverview from "./components/DatasetOverview"
-  import DimensionReduction from "./components/DimensionReduction"
+  import ThermalDiagram from "./components/ThermalDiagram"
   import ExperimentalResults from "./components/ExperimentalResults"
-  import ConfusionMatrix from "./components/ConfusionMatrix"
-  import ResultantThermal from "./components/ResultantThermal"
 
   export default {
     name: 'App',
     components: {
       DatasetOverview,
-      DimensionReduction,
-      ExperimentalResults,
-      ConfusionMatrix,
-      ResultantThermal
+      ThermalDiagram,
+      ExperimentalResults
     }
   }
 </script>
