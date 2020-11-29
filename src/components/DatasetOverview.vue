@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>数据集概览</h2>
+    <h2>{{title}}</h2>
     <el-table :data="tableData" style="width: 100%" border>
       <el-table-column v-for="item in propsArr" :key="item" :prop="item" :label="item"></el-table-column>
     </el-table>
@@ -12,9 +12,19 @@
 
   export default {
     name: "DatasetOverview",
+    props: {
+      title: {
+        type: String,
+        default: ''
+      },
+      csvFileName: {
+        type: String,
+        default: ''
+      }
+    },
     created() {
       axios({
-        url: '/dataset/overview.csv',
+        url: `/dataset/${this.csvFileName}.csv`,
         method: 'get'
       }).then(res => {
         let nameArr = res.data.split('\n').slice(0, 1)[0].split(',') // ["kind", "count", "number"]

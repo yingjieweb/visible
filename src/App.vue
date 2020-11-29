@@ -4,13 +4,13 @@
       <h1 style="text-align: center">实验报告</h1>
 
       <!--数据集概览-->
-      <DatasetOverview></DatasetOverview>
+      <DatasetOverview title="数据集概览" csvFileName="overview"></DatasetOverview>
 
       <!--数据集降维可视化-->
       <ThermalDiagram title="数据集降维可视化" imagePartName="dimension"></ThermalDiagram>
 
       <!--实验结果-->
-      <ExperimentalResults></ExperimentalResults>
+      <DatasetOverview title="实验结果" csvFileName="train_log"></DatasetOverview>
 
       <!--混淆矩阵图-->
       <ThermalDiagram title="混淆矩阵图" imagePartName="confusion"></ThermalDiagram>
@@ -24,14 +24,12 @@
 <script>
   import DatasetOverview from "./components/DatasetOverview"
   import ThermalDiagram from "./components/ThermalDiagram"
-  import ExperimentalResults from "./components/ExperimentalResults"
 
   export default {
     name: 'App',
     components: {
       DatasetOverview,
-      ThermalDiagram,
-      ExperimentalResults
+      ThermalDiagram
     }
   }
 </script>
