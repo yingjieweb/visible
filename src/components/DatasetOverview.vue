@@ -40,7 +40,7 @@
           item.split(',').map( (i, index) => {
             obj[nameArr[index]] = i;
           })
-          this.tableData.push((JSON).parse(JSON.stringify(obj)))
+          this.tableData.push(JSON.parse(JSON.stringify(obj)))
         })
       })
     },
